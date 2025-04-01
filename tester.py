@@ -6,10 +6,10 @@ import json
 
 # ganti dengan userid dan shared secret yang ingin dicoba
 userid = "sister"
-shared_secret = "ii2210_sister"
+shared_secret = "ii2210_sister_"
 
 # ganti dengan url server kalian
-server_url = "http://69.69.69.69:7787"
+server_url = "http://4.196.168.14:17787"
 
 # ganti dengan motd yang diinginkan
 motd = {"motd" : "testing"}

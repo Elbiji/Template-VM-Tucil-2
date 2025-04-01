@@ -30,7 +30,7 @@ users = {"sister" : "ii2210_sister_", "bagas" : "ii2210_bagas_" }
 async def root():
 
     	# Silahkan lengkapi dengan kode untuk memberikan index.html
-	return FileRespones("index.html")
+	return FileResponse("index.html")
 
 @app.get("/motd")
 async def get_motd():
