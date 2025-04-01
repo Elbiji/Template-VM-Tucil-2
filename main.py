@@ -4,7 +4,7 @@ import pyotp
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from starlette.responses import FileResponse
-from sqlmodel import create_engine, Session, SQLModel 
+from sqlmodel import create_engine, Session, SQLModel, select 
 from typing import Annotated
 from model import MOTD, MOTDBase
 
@@ -34,7 +34,7 @@ async def root():
 	return FileResponse("index.html")
 
 @app.get("/motd")
-async def get_motd():
+async def get_motd(session: SessionDep):
 
 	# Silahkan lengkapi dengan kode untuk memberikan message of the day
 	motds = session.exec(select(MOTD)).all()
@@ -81,6 +81,7 @@ async def post_motd(message: MOTDBase, session: SessionDep, credentials: Annotat
 	    raise e
 
 if __name__ == "__main__":
+	create_db_and_tables()
 	import uvicorn	
 	# Silahkan lengkapi dengan kode untuk menjalankan server
 	uvicorn.run(app, host ="0.0.0.0", port=17787)
