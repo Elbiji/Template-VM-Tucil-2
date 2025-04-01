@@ -3,6 +3,7 @@ import base64
 import pyotp
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
+from starlette.responses import FileResponse
 from sqlmodel import create_engine, Session, SQLModel 
 from typing import Annotated
 from model import MOTD, MOTDBase
