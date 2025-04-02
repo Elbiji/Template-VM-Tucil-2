@@ -6,10 +6,10 @@ import json
 
 # ganti dengan userid dan shared secret yang ingin dicoba
 userid = "sister"
-shared_secret = "ii2210_sister_"
+shared_secret = "ii2210_sister_1234"
 
 # ganti dengan url server kalian
-server_url = "http://4.196.168.14:17787"
+server_url = "http://4.198.168.14:17787/motd"
 
 # ganti dengan motd yang diinginkan
 motd = {"motd" : "testing"}
@@ -20,6 +20,6 @@ x = f"{userid}:" + totp.now()
 
 a = "Basic " + base64.b64encode(bytes(x,encoding="ascii")).decode("ascii")
 
-resp = requests.get(url=server_url, headers={"Authorization" : a}, json=motd)
+resp = requests.post(url=server_url, headers={"Authorization" : a}, json=motd)
 
 print(resp.content.decode("utf-8"))

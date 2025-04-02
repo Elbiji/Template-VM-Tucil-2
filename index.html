@@ -1,66 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOTD Server</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 30px; }
-        h1 { color: #333; }
-        button { padding: 10px 15px; margin-top: 10px; cursor: pointer; }
-        #motd { margin-top: 20px; font-size: 20px; }
-    </style>
-</head>
-<body>
-    <h1>Welcome to the MOTD Server!</h1>
-    <p>Use the endpoints below to interact with the MOTD API:</p>
-
-    <button id="getMotdButton">Get Random MOTD</button>
-    <p id="motd"></p>
-
-    <h3>Add a New MOTD</h3>
-    <textarea id="motdInput" placeholder="Enter your message here" rows="4" cols="50"></textarea><br>
-    <button id="postMotdButton">Post MOTD</button>
-
-    <script>
-        // Get random MOTD
-        document.getElementById('getMotdButton').addEventListener('click', function() {
-            fetch('/motd')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('motd').innerText = "MOTD: " + data.message;
-                })
-                .catch(error => {
-                    document.getElementById('motd').innerText = "Error fetching MOTD.";
-                });
-        });
-
-        // Post new MOTD
-        document.getElementById('postMotdButton').addEventListener('click', function() {
-            const motdMessage = document.getElementById('motdInput').value;
-            if (!motdMessage) {
-                alert("Please enter a message.");
-                return;
-            }
-
-            fetch('/motd', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Basic ' + btoa('sister:ii2210_sister_') // or your credentials
-                },
-                body: JSON.stringify({ message: motdMessage })
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert("MOTD posted successfully!");
-                document.getElementById('motdInput').value = ''; // Clear input
-            })
-            .catch(error => {
-                alert("Error posting MOTD.");
-            });
-        });
-    </script>
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta
+    name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing VM</title> <style>
+        body { background-color: #f0f8ff; font-family: Arial,
+            sans-serif; text-align: center; padding: 50px;
+        }
+        h1 { color: #333;
+        }
+        p { font-size: 18px; color: #666;
+        }
+    </style> </head> <body> <h1>Seriusan Capek Banget Ini Mah!</h1>
+    <p>PLEASEEE NO TUCILLL AGAAAINNNNNN I AM SO TIREDDDDD</p>
 </body>
 </html>
-
