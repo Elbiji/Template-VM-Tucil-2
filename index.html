@@ -10,5 +10,19 @@
         }
     </style> </head> <body> <h1>Seriusan Capek Banget Ini Mah!</h1>
     <p>PLEASEEE NO TUCILLL AGAAAINNNNNN I AM SO TIREDDDDD</p>
+    <h1 id="motd"></h1>
+    <button id="getButton">Message of the day</button>
+    <script>
+	document.getElementById('getButton').addEventListener('click',function() {
+		fetch('/motd')
+		.then(response => response.json())
+		.then(data => {
+			document.getElementById('motd').innerText = "MOTD: " + data.message;
+		})
+		.catch(error => {
+			document.getElementById('motd').innerText = "Error fetching.";
+		});
+	});
+   </script>
 </body>
 </html>
